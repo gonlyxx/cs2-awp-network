@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AWP NETWORK — a complete CS2 AWP server platform</title>
+<meta name="description" content="A production-grade Counter-Strike 2 AWP server platform: 20 first-party CounterStrikeSharp plugins, a Next.js community site with a web skinchanger, ranks, missions, an admin panel and a server-side anti-cheat. Available to acquire." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://gonlyxx.github.io/awp-network/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="AWP NETWORK — CS2 AWP server platform" />
+<meta property="og:description" content="20 first-party CS2 plugins + a full community website. One system, ready to run." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" />
+<style>
+  :root{
+    --bg:#0a0a0a; --bg2:#0f0f0f; --panel:#121212; --line:#262626; --line-hi:#3a3a3a;
+    --fg:#f6f6f6; --dim:#bcbcbc; --mute:#8c8c8c; --faint:#5a5a5a; --accent:#ffffff;
+    --mono:ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
+    --sans:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{color-scheme:dark;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
+    line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #171717 0%, var(--bg) 55%),
+      linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px) 0 0/100% 46px,
+      linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px) 0 0/46px 100%;
+  }
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+  h1,h2,h3{font-family:var(--sans);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:0}
+  h1{font-size:clamp(2.4rem,6vw,4rem);text-transform:uppercase}
+  h2{font-size:clamp(1.5rem,3.4vw,2.1rem);text-transform:uppercase}
+  h3{font-size:1rem;text-transform:uppercase;letter-spacing:-.01em}
+  p{color:var(--dim)}
+  .panel{border:1px solid var(--line);background:var(--panel);
+    clip-path:polygon(0 10px,10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%);}
+
+  /* header */
+  header{position:sticky;top:0;z-index:10;border-bottom:1px solid transparent;
+    backdrop-filter:blur(10px);background:rgba(10,10,10,.6)}
+  header.on{border-color:var(--line);background:rgba(10,10,10,.85)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+  .mark{width:30px;height:30px;border:2px solid var(--fg);border-radius:7px;display:grid;place-items:center;font-weight:800}
+  .nav a.cta{border:1px solid var(--line-hi);padding:9px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--dim)}
+  .nav a.cta:hover{border-color:var(--fg);color:var(--fg)}
+
+  /* hero */
+  .hero{padding:96px 0 72px}
+  .hero .kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);padding:6px 12px;margin-bottom:26px}
+  .hero p.lead{font-size:clamp(1rem,1.6vw,1.2rem);max-width:640px;margin:22px 0 34px;color:var(--dim)}
+  .btnrow{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;padding:13px 22px;border:1px solid var(--fg);color:var(--bg);background:var(--fg);font-weight:700}
+  .btn.ghost{background:transparent;color:var(--fg)}
+  .btn:hover{opacity:.92}
+  .btn.ghost:hover{background:#161616;opacity:1}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+  .stats>div{background:var(--panel);padding:20px}
+  .stats b{display:block;font-family:var(--mono);font-size:1.7rem;font-weight:800}
+  .stats span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:34px}
+  .sec-head .kicker{display:block;margin-bottom:10px}
+
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .card{padding:20px}
+  .card h3{margin-bottom:8px}
+  .card p{font-size:.92rem;margin:0;color:var(--mute)}
+  .tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:12px}
+
+  ul.plain{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px}
+  ul.plain li{font-size:.92rem;color:var(--dim);padding-left:18px;position:relative}
+  ul.plain li::before{content:"›";position:absolute;left:0;color:var(--faint)}
+
+  .cols{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+
+  .buy{padding:40px}
+  .buy h2{margin-bottom:12px}
+  .buy p{max-width:520px}
+  .contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .contact a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+    border:1px solid var(--line-hi);padding:12px 18px;color:var(--dim)}
+  .contact a:hover{border-color:var(--fg);color:var(--fg)}
+
+  footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-family:var(--mono);font-size:11px;letter-spacing:.08em}
+  .fine{color:var(--faint);margin-top:8px;line-height:1.7}
+
+  @media (max-width:820px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .g3,.g2{grid-template-columns:1fr}
+    .cols{grid-template-columns:1fr}
+    ul.plain{grid-template-columns:1fr}
+    .nav a.cta{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <div class="logo"><span class="mark">A</span> AWP NETWORK</div>
+    <a class="cta" href="#acquire">Acquire →</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero" style="border:0;padding-top:80px">
+      <span class="kicker">Counter-Strike 2 · server platform</span>
+      <h1>One scope.<br>One shot.<br>One system.</h1>
+      <p class="lead">
+        A complete, production-grade AWP server platform for Counter-Strike 2 —
+        a first-party CounterStrikeSharp plugin suite, a shared data layer, and a
+        full community website. Built as one coherent system, not a bag of scripts.
+      </p>
+      <div class="btnrow">
+        <a class="btn" href="#acquire">Acquire the platform</a>
+        <a class="btn ghost" href="#whats-inside">What's inside</a>
+      </div>
+
+      <div class="stats">
+        <div><b>20</b><span>first-party plugins</span></div>
+        <div><b>1</b><span>shared DB layer</span></div>
+        <div><b>10</b><span>schema migrations</span></div>
+        <div><b>31</b><span>unit tests, green</span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section id="whats-inside">
+      <div class="sec-head">
+        <span class="kicker">The build</span>
+        <h2>Everything an AWP network needs, already wired together</h2>
+      </div>
+
+      <div class="grid g3">
+        <div class="panel card">
+          <span class="tag">Gameplay</span>
+          <h3>AWP-only ruleset</h3>
+          <p>Loadout enforcement, round flow, spawn protection, team balance, bots + anti-AFK, 1v1 spotlight, special rounds (low-grav, deagle, one-HP…), custom victory messages.</p>
+        </div>
+        <div class="panel card">
+          <span class="tag">Progression</span>
+          <h3>XP, ranks & prestige</h3>
+          <p>Configurable level curve and rank tiers, prestige, 18 achievements, 12 level rewards, per-map stats, scoreboard rank tag, XP anti-abuse caps.</p>
+        </div>
+        <div class="panel card">
+          <span class="tag">Economy</span>
+          <h3>Credits, done right</h3>
+          <p>Single-writer balance, an append-only idempotent ledger, trick-shot bonuses, a clean one-line kill feed, and an end-of-round point summary.</p>
+        </div>
+        <div class="panel card">
+          <span class="tag">Cosmetics</span>
+          <h3>Skinchanger & effects</h3>
+          <p>Server-side weapon finishes, knives, gloves and a 10-slot medal showcase. Beam-based movement trails plus kill / spawn / MVP effects. VAC-safe — no client files touched.</p>
+        </div>
+        <div class="panel card">
+          <span class="tag">Moderation</span>
+          <h3>Admin + anti-cheat</h3>
+          <p>Reports, player flags, ban/mute v2, a web admin panel with RBAC, live observability, and a first-party server-side anti-cheat (spinbot, aim-snap, reaction, HS-streak) that flags for review.</p>
+        </div>
+        <div class="panel card">
+          <span class="tag">Web</span>
+          <h3>The community site</h3>
+          <p>Next.js 14: live server status, the web skinchanger, metric leaderboards, daily/weekly missions, achievements, a shop, VIP/Premium, rich player profiles, Steam OpenID login.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cols">
+        <div>
+          <div class="sec-head">
+            <span class="kicker">Architecture</span>
+            <h2>Engineered, not vibe-coded</h2>
+          </div>
+          <p>
+            The plugins share one library: a write-behind player cache (one SELECT
+            per session, batched flushes, zero per-tick SQL), an idempotent credit
+            ledger, and a service locator so each plugin degrades gracefully if the
+            database is down. Config is a single JSON tree. Every schema change is
+            an additive, re-runnable migration.
+          </p>
+          <p>
+            The website talks to the exact same MariaDB through a swappable data
+            source, with a signed-token agent bridge to the game servers. RBAC and
+            schema validation on every admin route. It runs four servers on an
+            8&nbsp;GB box.
+          </p>
+        </div>
+        <div class="panel card">
+          <span class="tag">Included modules</span>
+          <ul class="plain">
+            <li>Core / lifecycle</li>
+            <li>Shared DB library</li>
+            <li>Gameplay</li>
+            <li>Progression</li>
+            <li>Economy</li>
+            <li>Killstreak</li>
+            <li>Chat + tags</li>
+            <li>VIP</li>
+            <li>Movement / BHOP</li>
+            <li>Maps / RTV</li>
+            <li>Menu + Discord</li>
+            <li>Effects / trails</li>
+            <li>Cosmetics</li>
+            <li>Admin</li>
+            <li>Web-admin bridge</li>
+            <li>Anti-cheat</li>
+            <li>Owner assist tools</li>
+            <li>Skinchanger</li>
+            <li>SDK / contracts</li>
+            <li>Licensing gate</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="acquire">
+      <div class="panel buy">
+        <span class="kicker">Acquire</span>
+        <h2>Take the whole platform</h2>
+        <p>
+          Source, documentation and a hand-over. No public code, no free download —
+          serious buyers only. Reach out and tell me about your community.
+        </p>
+        <div class="contact">
+          <a href="mailto:gonlyxxstudio@proton.me?subject=AWP%20NETWORK%20platform">Email</a>
+          <a href="https://github.com/gonlyxx">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    AWP NETWORK — a Counter-Strike 2 AWP server platform.
+    <div class="fine">
+      Not affiliated with Valve Corporation. "Counter-Strike" is a trademark of
+      Valve Corporation. Third-party plugins bundled for local testing keep their
+      own licenses.
+    </div>
+  </div>
+</footer>
+
+<script>
+  var h=document.getElementById('hdr');
+  var f=function(){h.classList.toggle('on',window.scrollY>8)};f();
+  addEventListener('scroll',f,{passive:true});
+</script>
+</body>
+</html>
