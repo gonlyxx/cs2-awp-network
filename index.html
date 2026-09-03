@@ -3,111 +3,126 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AWP NETWORK — a complete CS2 AWP server platform</title>
-<meta name="description" content="A production-grade Counter-Strike 2 AWP server platform: 20 first-party CounterStrikeSharp plugins, a Next.js community site with a web skinchanger, ranks, missions, an admin panel and a server-side anti-cheat. Available to acquire." />
+<title>AWP NETWORK — a ready-to-run CS2 AWP server platform</title>
+<meta name="description" content="A complete Counter-Strike 2 AWP server platform for sale: 20 first-party CounterStrikeSharp plugins, a shared database layer, and a full Next.js community website with a web skinchanger, ranks, missions, an admin panel and a server-side anti-cheat. Buy it on Discord: dc_gon.lyxx" />
 <meta name="robots" content="index,follow" />
 <link rel="canonical" href="https://gonlyxx.github.io/awp-network/" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="AWP NETWORK — CS2 AWP server platform" />
-<meta property="og:description" content="20 first-party CS2 plugins + a full community website. One system, ready to run." />
+<meta property="og:title" content="AWP NETWORK — CS2 AWP server platform for sale" />
+<meta property="og:description" content="20 first-party CS2 plugins + a full community website. One system. Buy on Discord: dc_gon.lyxx" />
+<meta name="theme-color" content="#0a0a0a" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" />
 <style>
   :root{
-    --bg:#0a0a0a; --bg2:#0f0f0f; --panel:#121212; --line:#262626; --line-hi:#3a3a3a;
-    --fg:#f6f6f6; --dim:#bcbcbc; --mute:#8c8c8c; --faint:#5a5a5a; --accent:#ffffff;
-    --mono:ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;
-    --sans:"Inter",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --bg:#0a0a0a; --panel:#111111; --panel2:#161616; --line:#242424; --line-hi:#383838;
+    --fg:#f7f7f7; --dim:#c2c2c2; --mute:#8f8f8f; --faint:#5c5c5c;
+    --disc:#5865f2;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+    --sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   }
   *{box-sizing:border-box}
-  html{color-scheme:dark;-webkit-text-size-adjust:100%}
-  body{
-    margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
-    line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;
-  }
-  body::before{
-    content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
-    background:
-      radial-gradient(120% 80% at 50% -10%, #171717 0%, var(--bg) 55%),
-      linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px) 0 0/100% 46px,
-      linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px) 0 0/46px 100%;
-  }
-  a{color:inherit}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  html{color-scheme:dark;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+    radial-gradient(130% 90% at 50% -15%, #181818 0%, var(--bg) 58%),
+    linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px) 0 0/100% 48px,
+    linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px) 0 0/48px 100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
   .mono{font-family:var(--mono)}
-  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
-  h1,h2,h3{font-family:var(--sans);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:0}
-  h1{font-size:clamp(2.4rem,6vw,4rem);text-transform:uppercase}
-  h2{font-size:clamp(1.5rem,3.4vw,2.1rem);text-transform:uppercase}
-  h3{font-size:1rem;text-transform:uppercase;letter-spacing:-.01em}
-  p{color:var(--dim)}
-  .panel{border:1px solid var(--line);background:var(--panel);
-    clip-path:polygon(0 10px,10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%);}
+  .kick{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
+  h1,h2,h3{font-family:var(--sans);font-weight:800;letter-spacing:-.022em;line-height:1.06;margin:0}
+  h1{font-size:clamp(2.5rem,6.4vw,4.2rem);text-transform:uppercase}
+  h2{font-size:clamp(1.55rem,3.6vw,2.25rem);text-transform:uppercase}
+  h3{font-size:1.02rem;text-transform:uppercase;letter-spacing:-.01em}
+  p{color:var(--dim);margin:0 0 1rem}
+
+  .clip{clip-path:polygon(0 10px,10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%)}
+  .panel{border:1px solid var(--line);background:var(--panel)}
 
   /* header */
-  header{position:sticky;top:0;z-index:10;border-bottom:1px solid transparent;
-    backdrop-filter:blur(10px);background:rgba(10,10,10,.6)}
-  header.on{border-color:var(--line);background:rgba(10,10,10,.85)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
-  .mark{width:30px;height:30px;border:2px solid var(--fg);border-radius:7px;display:grid;place-items:center;font-weight:800}
-  .nav a.cta{border:1px solid var(--line-hi);padding:9px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--dim)}
-  .nav a.cta:hover{border-color:var(--fg);color:var(--fg)}
+  header{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
+    background:rgba(10,10,10,.55);border-bottom:1px solid transparent;transition:border-color .2s,background .2s}
+  header.on{border-color:var(--line);background:rgba(10,10,10,.9)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:var(--mono);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:13px}
+  .mark{width:30px;height:30px;border:2px solid var(--fg);border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:14px}
+  .disc-btn{display:inline-flex;align-items:center;gap:9px;background:var(--disc);color:#fff;font-family:var(--mono);
+    font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:11px 18px}
+  .disc-btn:hover{filter:brightness(1.08)}
+  .disc-ic{width:18px;height:18px;flex:0 0 18px}
 
   /* hero */
-  .hero{padding:96px 0 72px}
-  .hero .kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);padding:6px 12px;margin-bottom:26px}
-  .hero p.lead{font-size:clamp(1rem,1.6vw,1.2rem);max-width:640px;margin:22px 0 34px;color:var(--dim)}
-  .btnrow{display:flex;flex-wrap:wrap;gap:12px}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
-    text-decoration:none;padding:13px 22px;border:1px solid var(--fg);color:var(--bg);background:var(--fg);font-weight:700}
+  .hero{padding:92px 0 60px}
+  .hero .badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);padding:6px 12px;margin-bottom:28px}
+  .hero .lead{font-size:clamp(1.02rem,1.7vw,1.22rem);max-width:620px;margin:24px 0 34px;color:var(--dim)}
+  .btnrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;border:1px solid var(--fg);background:var(--fg);color:var(--bg)}
   .btn.ghost{background:transparent;color:var(--fg)}
-  .btn:hover{opacity:.92}
-  .btn.ghost:hover{background:#161616;opacity:1}
+  .btn:hover{opacity:.9} .btn.ghost:hover{background:#191919;opacity:1}
+  .btn.disc{background:var(--disc);border-color:var(--disc);color:#fff}
+  .btn.disc:hover{filter:brightness(1.08);opacity:1}
 
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:52px}
   .stats>div{background:var(--panel);padding:20px}
-  .stats b{display:block;font-family:var(--mono);font-size:1.7rem;font-weight:800}
-  .stats span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+  .stats b{display:block;font-family:var(--mono);font-size:1.65rem;font-weight:800}
+  .stats span{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--mute)}
 
-  section{padding:64px 0;border-top:1px solid var(--line)}
-  .sec-head{margin-bottom:34px}
-  .sec-head .kicker{display:block;margin-bottom:10px}
+  section{padding:60px 0;border-top:1px solid var(--line)}
+  .sh{margin-bottom:32px}
+  .sh .kick{display:block;margin-bottom:10px}
+  .sh p{max-width:640px}
 
-  .grid{display:grid;gap:16px}
-  .g3{grid-template-columns:repeat(3,1fr)}
-  .g2{grid-template-columns:repeat(2,1fr)}
-  .card{padding:20px}
+  /* how to buy */
+  .buysteps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{padding:24px}
+  .step .n{font-family:var(--mono);font-size:12px;color:var(--faint);font-weight:700;letter-spacing:.2em}
+  .step h3{margin:12px 0 8px}
+  .step p{font-size:.92rem;color:var(--mute);margin:0}
+  .handle{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:22px 24px;
+    border:1px solid var(--line-hi);background:var(--panel2)}
+  .handle .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+  .handle code{font-family:var(--mono);font-size:1.25rem;font-weight:700;color:var(--fg);letter-spacing:.02em}
+  .copy{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    border:1px solid var(--line-hi);padding:10px 16px;color:var(--dim);cursor:pointer;background:transparent}
+  .copy:hover{border-color:var(--fg);color:var(--fg)}
+  .copy.ok{border-color:var(--fg);color:var(--fg)}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{padding:22px}
+  .card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:12px}
   .card h3{margin-bottom:8px}
-  .card p{font-size:.92rem;margin:0;color:var(--mute)}
-  .tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:12px}
+  .card p{font-size:.9rem;color:var(--mute);margin:0}
 
-  ul.plain{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px}
-  ul.plain li{font-size:.92rem;color:var(--dim);padding-left:18px;position:relative}
+  .cols{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:start}
+  ul.plain{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:9px 24px}
+  ul.plain li{font-size:.9rem;color:var(--dim);padding-left:16px;position:relative}
   ul.plain li::before{content:"›";position:absolute;left:0;color:var(--faint)}
 
-  .cols{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+  .faq div{padding:20px 0;border-bottom:1px solid var(--line)}
+  .faq div:last-child{border-bottom:0}
+  .faq h3{font-size:.98rem;margin-bottom:6px}
+  .faq p{font-size:.92rem;color:var(--mute);margin:0}
 
-  .buy{padding:40px}
-  .buy h2{margin-bottom:12px}
-  .buy p{max-width:520px}
-  .contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-  .contact a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
-    border:1px solid var(--line-hi);padding:12px 18px;color:var(--dim)}
-  .contact a:hover{border-color:var(--fg);color:var(--fg)}
+  .cta-final{padding:44px;text-align:center}
+  .cta-final h2{margin-bottom:12px}
+  .cta-final p{max-width:520px;margin:0 auto 24px}
 
-  footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mute);font-family:var(--mono);font-size:11px;letter-spacing:.08em}
-  .fine{color:var(--faint);margin-top:8px;line-height:1.7}
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mute);font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+  .fine{color:var(--faint);margin-top:10px;line-height:1.8}
 
   @media (max-width:820px){
     .stats{grid-template-columns:repeat(2,1fr)}
-    .g3,.g2{grid-template-columns:1fr}
+    .buysteps,.grid3{grid-template-columns:1fr}
     .cols{grid-template-columns:1fr}
     ul.plain{grid-template-columns:1fr}
-    .nav a.cta{display:none}
+    .nav .disc-btn span{display:none}
   }
-  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -115,23 +130,30 @@
 <header id="hdr">
   <div class="wrap nav">
     <div class="logo"><span class="mark">A</span> AWP NETWORK</div>
-    <a class="cta" href="#acquire">Acquire →</a>
+    <a class="disc-btn" href="#buy">
+      <svg class="disc-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.7.4 3 .9 4.4 1.7a13.3 13.3 0 0 0-11-.1c1.4-.8 2.8-1.4 4.4-1.7L12.6 3A19.8 19.8 0 0 0 7.7 4.4C4.5 9 3.6 13.5 4 17.9a20 20 0 0 0 6 3l.8-1.2c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.4 0l.5.4c-.6.4-1.3.7-2 1l.8 1.2a20 20 0 0 0 6-3c.5-5.2-.7-9.7-4.7-13.5ZM9.7 15.3c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm4.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg>
+      <span>Buy — Discord</span>
+    </a>
   </div>
 </header>
 
 <main>
   <div class="wrap">
-    <section class="hero" style="border:0;padding-top:80px">
-      <span class="kicker">Counter-Strike 2 · server platform</span>
-      <h1>One scope.<br>One shot.<br>One system.</h1>
+    <section class="hero" style="border:0;padding-top:76px">
+      <span class="badge kick">Counter-Strike 2 · server platform · for sale</span>
+      <h1>A whole AWP<br>network. Ready<br>to run.</h1>
       <p class="lead">
-        A complete, production-grade AWP server platform for Counter-Strike 2 —
-        a first-party CounterStrikeSharp plugin suite, a shared data layer, and a
-        full community website. Built as one coherent system, not a bag of scripts.
+        Not a folder of scripts. A single system: 20 first-party CounterStrikeSharp
+        plugins, one shared database layer, and a full Next.js community website —
+        skinchanger, ranks, missions, admin panel, server-side anti-cheat. Built,
+        tested, documented.
       </p>
       <div class="btnrow">
-        <a class="btn" href="#acquire">Acquire the platform</a>
-        <a class="btn ghost" href="#whats-inside">What's inside</a>
+        <a class="btn disc" href="#buy">
+          <svg class="disc-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.7.4 3 .9 4.4 1.7a13.3 13.3 0 0 0-11-.1c1.4-.8 2.8-1.4 4.4-1.7L12.6 3A19.8 19.8 0 0 0 7.7 4.4C4.5 9 3.6 13.5 4 17.9a20 20 0 0 0 6 3l.8-1.2c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.4 0l.5.4c-.6.4-1.3.7-2 1l.8 1.2a20 20 0 0 0 6-3c.5-5.2-.7-9.7-4.7-13.5ZM9.7 15.3c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm4.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg>
+          How to buy
+        </a>
+        <a class="btn ghost" href="#inside">See what's inside</a>
       </div>
 
       <div class="stats">
@@ -144,106 +166,116 @@
   </div>
 
   <div class="wrap">
-    <section id="whats-inside">
-      <div class="sec-head">
-        <span class="kicker">The build</span>
-        <h2>Everything an AWP network needs, already wired together</h2>
+    <!-- HOW TO BUY — front and centre -->
+    <section id="buy">
+      <div class="sh">
+        <span class="kick">How to buy</span>
+        <h2>Three steps. All on Discord.</h2>
+        <p>There is no cart and no auto-download. Every sale is a direct hand-over so you get a working platform, not a zip you have to reverse-engineer.</p>
       </div>
 
-      <div class="grid g3">
-        <div class="panel card">
-          <span class="tag">Gameplay</span>
-          <h3>AWP-only ruleset</h3>
-          <p>Loadout enforcement, round flow, spawn protection, team balance, bots + anti-AFK, 1v1 spotlight, special rounds (low-grav, deagle, one-HP…), custom victory messages.</p>
+      <div class="buysteps">
+        <div class="panel clip step">
+          <div class="n">01</div>
+          <h3>Add me on Discord</h3>
+          <p>Send a friend request to the username below, or DM if we already share a server.</p>
         </div>
-        <div class="panel card">
-          <span class="tag">Progression</span>
-          <h3>XP, ranks & prestige</h3>
-          <p>Configurable level curve and rank tiers, prestige, 18 achievements, 12 level rewards, per-map stats, scoreboard rank tag, XP anti-abuse caps.</p>
+        <div class="panel clip step">
+          <div class="n">02</div>
+          <h3>Tell me about your community</h3>
+          <p>Player count, what you run today, what you want. I'll show the platform live and quote you.</p>
         </div>
-        <div class="panel card">
-          <span class="tag">Economy</span>
-          <h3>Credits, done right</h3>
-          <p>Single-writer balance, an append-only idempotent ledger, trick-shot bonuses, a clean one-line kill feed, and an end-of-round point summary.</p>
+        <div class="panel clip step">
+          <div class="n">03</div>
+          <h3>Pay &amp; hand-over</h3>
+          <p>Full source, the database schema, the deploy scripts and documentation. I walk you through the first boot.</p>
         </div>
-        <div class="panel card">
-          <span class="tag">Cosmetics</span>
-          <h3>Skinchanger & effects</h3>
-          <p>Server-side weapon finishes, knives, gloves and a 10-slot medal showcase. Beam-based movement trails plus kill / spawn / MVP effects. VAC-safe — no client files touched.</p>
+      </div>
+
+      <div class="handle clip">
+        <span class="dc-ico">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#5865f2" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.7.4 3 .9 4.4 1.7a13.3 13.3 0 0 0-11-.1c1.4-.8 2.8-1.4 4.4-1.7L12.6 3A19.8 19.8 0 0 0 7.7 4.4C4.5 9 3.6 13.5 4 17.9a20 20 0 0 0 6 3l.8-1.2c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.4 0l.5.4c-.6.4-1.3.7-2 1l.8 1.2a20 20 0 0 0 6-3c.5-5.2-.7-9.7-4.7-13.5ZM9.7 15.3c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm4.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg>
+        </span>
+        <div>
+          <div class="lbl">Discord username</div>
+          <code id="dc">dc_gon.lyxx</code>
         </div>
-        <div class="panel card">
-          <span class="tag">Moderation</span>
-          <h3>Admin + anti-cheat</h3>
-          <p>Reports, player flags, ban/mute v2, a web admin panel with RBAC, live observability, and a first-party server-side anti-cheat (spinbot, aim-snap, reaction, HS-streak) that flags for review.</p>
-        </div>
-        <div class="panel card">
-          <span class="tag">Web</span>
-          <h3>The community site</h3>
-          <p>Next.js 14: live server status, the web skinchanger, metric leaderboards, daily/weekly missions, achievements, a shop, VIP/Premium, rich player profiles, Steam OpenID login.</p>
-        </div>
+        <button class="copy" id="copyBtn" type="button">Copy</button>
       </div>
     </section>
 
+    <!-- WHAT'S INSIDE -->
+    <section id="inside">
+      <div class="sh">
+        <span class="kick">The build</span>
+        <h2>Everything an AWP network needs, wired together</h2>
+      </div>
+
+      <div class="grid3">
+        <div class="panel clip card"><span class="tag">Gameplay</span><h3>AWP-only ruleset</h3>
+          <p>Loadout enforcement, round flow, spawn protection, team balance, bots + anti-AFK, 1v1 spotlight, special rounds (low-grav, deagle, one-HP…), custom victory messages.</p></div>
+        <div class="panel clip card"><span class="tag">Progression</span><h3>XP, ranks &amp; prestige</h3>
+          <p>Configurable level curve and rank tiers, prestige, 18 achievements, 12 level rewards, per-map stats, a scoreboard rank tag, XP anti-abuse caps.</p></div>
+        <div class="panel clip card"><span class="tag">Economy</span><h3>Credits, done right</h3>
+          <p>Single-writer balance, an append-only idempotent ledger, trick-shot bonuses, a clean one-line kill feed, and an end-of-round point summary.</p></div>
+        <div class="panel clip card"><span class="tag">Cosmetics</span><h3>Skinchanger &amp; effects</h3>
+          <p>Server-side weapon finishes, knives, gloves and a 10-slot medal showcase. Beam movement trails plus kill / spawn / MVP effects. VAC-safe — no client files touched.</p></div>
+        <div class="panel clip card"><span class="tag">Moderation</span><h3>Admin + anti-cheat</h3>
+          <p>Reports, player flags, ban/mute v2, a web admin panel with RBAC, live observability, and a first-party server-side anti-cheat that flags spinbot / aim-snap / reaction / HS-streak for review.</p></div>
+        <div class="panel clip card"><span class="tag">Web</span><h3>The community site</h3>
+          <p>Next.js 14: live server status, the web skinchanger, metric leaderboards, daily/weekly missions, achievements, a shop, VIP/Premium, rich player profiles, Steam OpenID login.</p></div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
     <section>
       <div class="cols">
         <div>
-          <div class="sec-head">
-            <span class="kicker">Architecture</span>
-            <h2>Engineered, not vibe-coded</h2>
-          </div>
-          <p>
-            The plugins share one library: a write-behind player cache (one SELECT
-            per session, batched flushes, zero per-tick SQL), an idempotent credit
-            ledger, and a service locator so each plugin degrades gracefully if the
-            database is down. Config is a single JSON tree. Every schema change is
-            an additive, re-runnable migration.
-          </p>
-          <p>
-            The website talks to the exact same MariaDB through a swappable data
-            source, with a signed-token agent bridge to the game servers. RBAC and
-            schema validation on every admin route. It runs four servers on an
-            8&nbsp;GB box.
-          </p>
+          <div class="sh"><span class="kick">Architecture</span><h2>Engineered, not vibe-coded</h2></div>
+          <p>The plugins share one library: a write-behind player cache — one SELECT per session, batched flushes, zero per-tick SQL — an idempotent credit ledger, and a service locator so each plugin degrades gracefully when the database is down. Config is a single JSON tree. Every schema change is an additive, re-runnable migration.</p>
+          <p>The website talks to the same MariaDB through a swappable data source, with a signed-token bridge to the game servers. RBAC and schema validation on every admin route. It runs four servers on an 8&nbsp;GB box.</p>
         </div>
-        <div class="panel card">
+        <div class="panel clip card">
           <span class="tag">Included modules</span>
           <ul class="plain">
-            <li>Core / lifecycle</li>
-            <li>Shared DB library</li>
-            <li>Gameplay</li>
-            <li>Progression</li>
-            <li>Economy</li>
-            <li>Killstreak</li>
-            <li>Chat + tags</li>
-            <li>VIP</li>
-            <li>Movement / BHOP</li>
-            <li>Maps / RTV</li>
-            <li>Menu + Discord</li>
-            <li>Effects / trails</li>
-            <li>Cosmetics</li>
-            <li>Admin</li>
-            <li>Web-admin bridge</li>
-            <li>Anti-cheat</li>
-            <li>Owner assist tools</li>
-            <li>Skinchanger</li>
-            <li>SDK / contracts</li>
-            <li>Licensing gate</li>
+            <li>Core / lifecycle</li><li>Shared DB library</li>
+            <li>Gameplay</li><li>Progression</li>
+            <li>Economy</li><li>Killstreak</li>
+            <li>Chat + tags</li><li>VIP</li>
+            <li>Movement / BHOP</li><li>Maps / RTV</li>
+            <li>Menu + Discord</li><li>Effects / trails</li>
+            <li>Cosmetics</li><li>Admin</li>
+            <li>Web-admin bridge</li><li>Anti-cheat</li>
+            <li>Owner assist tools</li><li>Skinchanger</li>
+            <li>SDK / contracts</li><li>Licensing gate</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="acquire">
-      <div class="panel buy">
-        <span class="kicker">Acquire</span>
-        <h2>Take the whole platform</h2>
-        <p>
-          Source, documentation and a hand-over. No public code, no free download —
-          serious buyers only. Reach out and tell me about your community.
-        </p>
-        <div class="contact">
-          <a href="mailto:gonlyxxstudio@proton.me?subject=AWP%20NETWORK%20platform">Email</a>
-          <a href="https://github.com/gonlyxx">GitHub</a>
+    <!-- FAQ -->
+    <section>
+      <div class="sh"><span class="kick">Before you ask</span><h2>FAQ</h2></div>
+      <div class="faq">
+        <div><h3>What exactly do I get?</h3><p>The full plugin source, the shared library, the community website, the database schema and migrations, the deploy / build scripts, and the docs. Enough to run the whole thing yourself.</p></div>
+        <div><h3>Can I see it running first?</h3><p>Yes. Add me on Discord and I'll show you the live servers and the website before you pay anything.</p></div>
+        <div><h3>Is it pay-to-win?</h3><p>No. VIP and paid cosmetics are stat multipliers and visuals only — never an in-round advantage.</p></div>
+        <div><h3>Do I get support?</h3><p>The hand-over includes a walk-through of the first boot. Ongoing support is a conversation.</p></div>
+        <div><h3>What about the bundled third-party plugins?</h3><p>WeaponPaints / MenuManager and similar are only used for local testing and keep their own licenses. The AwpLego.* suite is first-party.</p></div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="border-top:0">
+      <div class="panel clip cta-final">
+        <span class="kick">Get it</span>
+        <h2>Ready when you are</h2>
+        <p>One message on Discord and you can have the whole platform running this week.</p>
+        <div class="btnrow" style="justify-content:center">
+          <a class="btn disc" href="#buy">
+            <svg class="disc-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.3.5c1.7.4 3 .9 4.4 1.7a13.3 13.3 0 0 0-11-.1c1.4-.8 2.8-1.4 4.4-1.7L12.6 3A19.8 19.8 0 0 0 7.7 4.4C4.5 9 3.6 13.5 4 17.9a20 20 0 0 0 6 3l.8-1.2c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.4 0l.5.4c-.6.4-1.3.7-2 1l.8 1.2a20 20 0 0 0 6-3c.5-5.2-.7-9.7-4.7-13.5ZM9.7 15.3c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm4.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg>
+          </a>
+          <span class="mono" style="font-size:1.05rem;font-weight:700">dc_gon.lyxx</span>
         </div>
       </div>
     </section>
@@ -252,19 +284,23 @@
 
 <footer>
   <div class="wrap">
-    AWP NETWORK — a Counter-Strike 2 AWP server platform.
+    AWP NETWORK — a Counter-Strike 2 AWP server platform. Buy on Discord: <b>dc_gon.lyxx</b>
     <div class="fine">
-      Not affiliated with Valve Corporation. "Counter-Strike" is a trademark of
-      Valve Corporation. Third-party plugins bundled for local testing keep their
-      own licenses.
+      Not affiliated with Valve Corporation. "Counter-Strike" is a trademark of Valve Corporation.
+      Bundled third-party plugins keep their own licenses.
     </div>
   </div>
 </footer>
 
 <script>
   var h=document.getElementById('hdr');
-  var f=function(){h.classList.toggle('on',window.scrollY>8)};f();
-  addEventListener('scroll',f,{passive:true});
+  var f=function(){h.classList.toggle('on',scrollY>8)};f();addEventListener('scroll',f,{passive:true});
+  var b=document.getElementById('copyBtn');
+  b&&b.addEventListener('click',function(){
+    navigator.clipboard&&navigator.clipboard.writeText('dc_gon.lyxx').then(function(){
+      b.textContent='Copied';b.classList.add('ok');setTimeout(function(){b.textContent='Copy';b.classList.remove('ok')},1600);
+    });
+  });
 </script>
 </body>
 </html>
