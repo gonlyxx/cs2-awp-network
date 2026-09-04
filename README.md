@@ -6,7 +6,7 @@
 
 Four running servers · 19 first-party plugins · a full community website · one database.
 
-### → [gonlyxx.github.io/awp-network](https://gonlyxx.github.io/awp-network/)
+### → [gonlyxx.github.io/AWP-NETWORK](https://gonlyxx.github.io/AWP-NETWORK/)
 
 **Contact on Discord: `gon.lyxx`**
 
